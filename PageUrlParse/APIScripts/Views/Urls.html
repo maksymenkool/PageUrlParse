@@ -1,0 +1,59 @@
+﻿<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-brand">Enter the URL in format: http(s)://**** </p>
+        </div>
+        <!-- Save URL -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="url" ng-pattern="regex" class="form-control" placeholder="your URL address" data-ng-model="nameUrl" />
+                </div>
+                <button type="submit" class="btn btn-default" data-ng-click="saveUrls()">Parse</button>
+            </div>
+        </div> <!-- end save url -->
+    </div>
+</div>
+
+<h3 style="text-align: center;">Pages loading speed</h3>
+<!-- Chart Bar -->
+<div>
+    <hr />
+    <canvas id="bar" class="chart chart-bar ng-isolate-scope"
+        chart-data="data" chart-labels="labels" chart-series="series"
+        chart-options="options">
+    </canvas>
+    <hr />
+</div>
+<!-- end Chart Bar -->
+
+<div class="container-fluid table-responsive">
+    
+    <table class="table table-striped" id="table-border">
+        <thead>
+            <tr>
+                <th width="5%">№</th>
+                <th width="45%">URL's</th>
+                <th width="10%">Max Speed (msec)</th>
+                <th width="10%">Min Speed (msec)</th>
+                <th width="10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="url in urls">
+                <td>{{$index + 1}}</td>
+                <td><a href="{{url.NameUrl}}" style="cursor: pointer" target="_blank">{{url.NameUrl}}</a></td>
+                <td>{{url.MaxSpeed}}</td>
+                <td>{{url.MinSpeed}}</td>
+                <td><a href="#/url/details/{{url.IdUrl}}" class="btn btn-default btn-sm" data-ng-click="getUrlById(url.IdUrl)" role="button">Details</a>  <input type="button" class="btn btn-default btn-sm" id="Delete " value="Delete" data-ng-click="dltUrl(url.IdUrl)" /></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+<hr />

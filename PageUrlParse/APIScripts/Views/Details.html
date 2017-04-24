@@ -1,0 +1,28 @@
+﻿<div class="container-fluid table-responsive">
+    <hr/>
+    <h3>See details for URL:</h3>
+    <h3><a href="{{page.NameUrl}}" style="cursor: pointer">{{page.NameUrl}}</a></h3>
+    <hr/>
+    <a href="#/urls" class="btn btn-default btn-info">Back to Main</a>
+    <br /><br />
+    <table class="table table-striped" id="table-border">
+        <thead>
+            <tr>
+                <th width="10%">№</th>
+                <th width="75%">URL's</th>
+                <th width="15%">Speed (msec)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="u in page.PageLists_tbl">
+                <td>{{$index + 1}}</td>
+                <td><a href="{{u.NamePage}}" style="cursor: pointer" target="_blank">{{u.NamePage}}</a></td>
+                <td>{{u.Speed}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    
+    <a href="#/urls" class="btn btn-default btn-info">Back to Main</a>
+</div>
+<hr />
